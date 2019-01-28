@@ -55,5 +55,49 @@ public class MyLittleMethods {
 		
 		return array;
 	}
+	
+	/**
+	 * Suppose an array sorted in ascending order is rotated at some pivot unknown
+	 * to you beforehand.
+	 * 
+	 * (i.e., [0,1,2,4,5,6,7] might become [4,5,6,7,0,1,2]).
+	 * 
+	 * Your job is to find the index of that pivot in this given array. Essentially, this will be the index of the least value in the given array.
+	 * 
+	 * The desired complexity is O (log N).
+	 * 
+	 * 
+	 * 
+	 * @param a
+	 * @return
+	 */
+	public int findRotateIndex(int[] a) {
+		return findTheSmallestNumberBetweenStartAndEndIndexOfGivenArray (a , 0 , a.length - 1);
+	}
+	
+	//
+	private int findTheSmallestNumberBetweenStartAndEndIndexOfGivenArray (int[] nums, int leftIndex, int rightIndex) {
+		if (nums[leftIndex] < nums[rightIndex]) {
+			return 0;
+		}
+		
+		while (leftIndex <= rightIndex) {
+			int pivot = (leftIndex + rightIndex) / 2;
+			
+			if (nums[pivot] > nums[pivot+1]) {
+				return pivot + 1; // the least number
+			}
+			
+			else {
+				if (nums[pivot] < nums[leftIndex]) {
+					rightIndex = pivot - 1;
+				} else {
+					leftIndex = pivot + 1;
+				}
+			}
+		}
+		
+		return 0;
+	}
 
 }
