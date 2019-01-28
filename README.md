@@ -18,4 +18,5 @@ Look into com.example.little.methods.MyLittleMethods.java
 
 it has corresponding Junit test cases as well. It is using AssertJ library. Read [https://www.blazemeter.com/blog/hamcrest-vs-assertj-assertion-frameworks-which-one-should-you-choose]
 
-
+ **References** 
+ https://howtodoinjava.com/java8/java8-boxed-intstream/ 

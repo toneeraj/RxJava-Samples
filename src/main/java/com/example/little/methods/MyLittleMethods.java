@@ -1,7 +1,12 @@
 package com.example.little.methods;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 /**
  * 
@@ -11,7 +16,7 @@ import java.util.Map;
 public class MyLittleMethods {
 
 	/**
-	 * * https://codingbat.com/prob/p126332
+	 * Source : https://codingbat.com/prob/p126332
 	 * 
 	 * Given an array of non-empty strings, create and return a Map<String, String>
 	 * as follows: for each string add its first character as a key with its last
@@ -29,6 +34,26 @@ public class MyLittleMethods {
 					String.valueOf(candidateString.charAt(candidateString.length() - 1)));
 		}
 		return map;
+	}
+
+	/**
+	 * Source : https://codingbat.com/prob/p262890
+	 * Return an array that contains the sorted values from the input array with
+	 * duplicates removed.
+	 * 
+	 * 
+	 * sort([]) → [] 
+	 * sort([1]) → [1] 
+	 * sort([1, 1]) → [1]
+	 * 
+	 * @param a
+	 * @return
+	 */
+	public int[] sort(int[] a) {
+		Set<Integer> s = Arrays.stream(a).boxed().collect(Collectors.toCollection(TreeSet::new));
+		int[] array = s.stream().mapToInt(Number::intValue).toArray();
+		
+		return array;
 	}
 
 }
