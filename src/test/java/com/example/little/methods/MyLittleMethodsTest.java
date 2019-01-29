@@ -139,5 +139,42 @@ public class MyLittleMethodsTest {
 		
 		assertThat(testSortActualResult).isEqualTo(testSortExpectedResult);
 	}
+	
+	@Test
+	public void findRotateIndex_when_pivot_is_immediately_next_to_middle() {
+		int[] input = {4,5,6,7,0,1,2};
+		int expectedResult = 4;//index of the least element in the array which was sorted in the beginning but has been now rotated at the pivot element.
+		int actualResult = testClass.findRotateIndex(input);
+		
+		assertThat(expectedResult).isEqualTo(actualResult);
+	}
+	
+	@Test
+	public void findRotateIndex_when_pivot_is_not_next_to_middle() {
+		int[] input = {4,5,6,7,8, 9, 0,1,2};
+		int expectedResult = 6;//index of the least element in the array which was sorted in the beginning but has been now rotated at the pivot element.
+		int actualResult = testClass.findRotateIndex(input);
+		
+		assertThat(expectedResult).isEqualTo(actualResult);
+	}
+	
+	@Test
+	public void findRotateIndex_when_sorted_array_has_not_been_rottated() {
+		int[] input = {0, 1, 2, 4,5,6,7,8};
+		int expectedResult = 0;//index of the least element in the array which was sorted in the beginning but has been now rotated at the pivot element.
+		int actualResult = testClass.findRotateIndex(input);
+		
+		assertThat(expectedResult).isEqualTo(actualResult);
+	}
+	
+	@Test
+	public void findRotateIndex_when_pivot_element_is_in_end() {
+		int[] input = {1, 2, 4,5,6,7,8, 0};
+		int expectedResult = 7;//index of the least element in the array which was sorted in the beginning but has been now rotated at the pivot element.
+		int actualResult = testClass.findRotateIndex(input);
+		
+		assertThat(expectedResult).isEqualTo(actualResult);
+	}
+
 
 }
